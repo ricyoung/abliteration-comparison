@@ -54,12 +54,7 @@ Safety alignment mechanisms in large language models prevent responses to harmfu
 
 ## Model Weights
 
-Abliterated model weights for **permissively-licensed** base models are available on Hugging Face:
-- [Mistral-7B-Instruct-v0.3-abliterated](https://huggingface.co/richardyoung/Mistral-7B-Instruct-v0.3-abliterated)
-- [Zephyr-7B-beta-abliterated](https://huggingface.co/richardyoung/zephyr-7b-beta-abliterated)
-- [OpenChat-3.5-0106-abliterated](https://huggingface.co/richardyoung/openchat-3.5-0106-abliterated)
-- [Falcon-Mamba-7B-instruct-abliterated](https://huggingface.co/richardyoung/falcon-mamba-7b-instruct-abliterated)
-- [deepseek-llm-7b-chat-abliterated](https://huggingface.co/richardyoung/deepseek-llm-7b-chat-abliterated)
+Select abliterated model weights for permissively-licensed base models are available in our [Hugging Face collection](https://huggingface.co/collections/richardyoung/uncensored-and-abliterated-llms-69267b2d66ae2cc21c4b0e99).
 
 Abliterated weights for models with restrictive licenses are available upon request to verified researchers for reproducibility purposes.
 
