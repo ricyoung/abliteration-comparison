@@ -1,0 +1,7 @@
+{
+  "source_model": "/home/Ubuntu/workspace/models/gemma-7b-it",
+  "tool": "deccp",
+  "layer_idx": 16,
+  "instructions_used": 95,
+  "timestamp": "2025-12-02T22:15:53.340829"
+}

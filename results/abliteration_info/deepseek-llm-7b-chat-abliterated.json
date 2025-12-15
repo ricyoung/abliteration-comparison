@@ -1,0 +1,24 @@
+{
+  "source_model": "/home/Ubuntu/workspace/models/deepseek-llm-7b-chat",
+  "trials": 50,
+  "best_trial": 40,
+  "refusals": 16,
+  "kl_divergence": 0.04295262321829796,
+  "direction_scope": "global",
+  "direction_index": 20.23873546010395,
+  "parameters": {
+    "attn.o_proj": {
+      "max_weight": 0.995487504728191,
+      "max_weight_position": 17.521177286807152,
+      "min_weight": 0.9393906613818965,
+      "min_weight_distance": 12.133969238378315
+    },
+    "mlp.down_proj": {
+      "max_weight": 1.1662405127709237,
+      "max_weight_position": 26.73946493277692,
+      "min_weight": 1.1635779056963413,
+      "min_weight_distance": 12.730343359451604
+    }
+  },
+  "total_time_seconds": 3571.237249236001
+}

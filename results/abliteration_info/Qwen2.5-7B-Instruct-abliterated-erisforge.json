@@ -1,0 +1,8 @@
+{
+  "source_model": "/home/Ubuntu/workspace/models/Qwen2.5-7B-Instruct",
+  "tool": "erisforge",
+  "max_instructions": 100,
+  "batch_size": 5,
+  "architecture": "qwen2",
+  "total_time_seconds": 3144.528887987137
+}

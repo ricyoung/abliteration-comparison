@@ -1,0 +1,24 @@
+{
+  "source_model": "/home/Ubuntu/workspace/models/stablelm-2-12b-chat",
+  "trials": 50,
+  "best_trial": 40,
+  "refusals": 54,
+  "kl_divergence": 1.6050149202346802,
+  "direction_scope": "per layer",
+  "direction_index": null,
+  "parameters": {
+    "attn.o_proj": {
+      "max_weight": 1.3777664486601746,
+      "max_weight_position": 29.382084428797857,
+      "min_weight": 0.4735936257087844,
+      "min_weight_distance": 21.584411818149377
+    },
+    "mlp.down_proj": {
+      "max_weight": 1.2520567446888604,
+      "max_weight_position": 27.488385258060177,
+      "min_weight": 1.1649801345860595,
+      "min_weight_distance": 22.235844184260273
+    }
+  },
+  "total_time_seconds": 6552.710198456989
+}

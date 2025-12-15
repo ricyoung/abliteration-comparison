@@ -1,0 +1,8 @@
+{
+  "source_model": "/home/Ubuntu/workspace/models/gemma-2-9b-it",
+  "tool": "erisforge",
+  "max_instructions": 100,
+  "batch_size": 5,
+  "architecture": "gemma2",
+  "total_time_seconds": 7698.081124305725
+}

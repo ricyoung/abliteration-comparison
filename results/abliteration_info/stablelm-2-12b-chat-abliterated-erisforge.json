@@ -1,0 +1,8 @@
+{
+  "source_model": "/home/Ubuntu/workspace/models/stablelm-2-12b-chat",
+  "tool": "erisforge",
+  "max_instructions": 100,
+  "batch_size": 5,
+  "architecture": "llama",
+  "total_time_seconds": 8088.434658527374
+}

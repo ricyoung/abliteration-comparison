@@ -1,0 +1,7 @@
+{
+  "source_model": "/home/Ubuntu/workspace/models/Qwen3-8B",
+  "tool": "deccp",
+  "layer_idx": 21,
+  "instructions_used": 95,
+  "timestamp": "2025-12-02T21:54:26.736139"
+}

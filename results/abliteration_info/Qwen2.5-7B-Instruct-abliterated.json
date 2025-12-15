@@ -1,0 +1,24 @@
+{
+  "source_model": "/home/Ubuntu/workspace/models/Qwen2.5-7B-Instruct",
+  "trials": 50,
+  "best_trial": 33,
+  "refusals": 42,
+  "kl_divergence": 1.6458767652511597,
+  "direction_scope": "per layer",
+  "direction_index": null,
+  "parameters": {
+    "attn.o_proj": {
+      "max_weight": 1.1601362773307857,
+      "max_weight_position": 17.67717781694965,
+      "min_weight": 1.0178983954312442,
+      "min_weight_distance": 14.449052645549727
+    },
+    "mlp.down_proj": {
+      "max_weight": 1.2851504473615492,
+      "max_weight_position": 22.128923128441485,
+      "min_weight": 0.9835909986125931,
+      "min_weight_distance": 12.177589482486148
+    }
+  },
+  "total_time_seconds": 2484.111519884995
+}

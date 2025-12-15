@@ -1,0 +1,24 @@
+{
+  "source_model": "/home/Ubuntu/workspace/models/Mistral-7B-Instruct-v0.3",
+  "trials": 50,
+  "best_trial": 28,
+  "refusals": 16,
+  "kl_divergence": 0.31720125675201416,
+  "direction_scope": "global",
+  "direction_index": 18.72780110179764,
+  "parameters": {
+    "attn.o_proj": {
+      "max_weight": 0.8247086688207022,
+      "max_weight_position": 24.829503690079473,
+      "min_weight": 0.5220519805604739,
+      "min_weight_distance": 14.70074191817024
+    },
+    "mlp.down_proj": {
+      "max_weight": 1.3113156822969803,
+      "max_weight_position": 19.194921093593457,
+      "min_weight": 1.2376525638899343,
+      "min_weight_distance": 14.46499907464411
+    }
+  },
+  "total_time_seconds": 2386.733802540999
+}

@@ -1,0 +1,8 @@
+{
+  "source_model": "/home/Ubuntu/workspace/models/deepseek-llm-7b-chat",
+  "tool": "erisforge",
+  "max_instructions": 100,
+  "batch_size": 5,
+  "architecture": "llama",
+  "total_time_seconds": 2198.2475306987762
+}

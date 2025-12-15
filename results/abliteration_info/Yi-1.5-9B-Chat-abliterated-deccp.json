@@ -1,0 +1,7 @@
+{
+  "source_model": "/home/Ubuntu/workspace/models/Yi-1.5-9B-Chat",
+  "tool": "deccp",
+  "layer_idx": 28,
+  "instructions_used": 95,
+  "timestamp": "2025-12-02T21:55:18.240159"
+}

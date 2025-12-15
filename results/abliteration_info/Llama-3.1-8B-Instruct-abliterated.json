@@ -1,0 +1,24 @@
+{
+  "source_model": "/home/Ubuntu/workspace/models/Llama-3.1-8B-Instruct",
+  "trials": 50,
+  "best_trial": 25,
+  "refusals": 24,
+  "kl_divergence": 0.05637310445308685,
+  "direction_scope": "global",
+  "direction_index": 15.130012213532336,
+  "parameters": {
+    "attn.o_proj": {
+      "max_weight": 1.2956532293416831,
+      "max_weight_position": 20.780760105642965,
+      "min_weight": 0.22475660454115254,
+      "min_weight_distance": 18.556368814451304
+    },
+    "mlp.down_proj": {
+      "max_weight": 1.2147277230754479,
+      "max_weight_position": 30.53092847851313,
+      "min_weight": 0.8197924576221479,
+      "min_weight_distance": 7.539025060815039
+    }
+  },
+  "total_time_seconds": 1990.6606278519976
+}

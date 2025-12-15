@@ -1,0 +1,8 @@
+{
+  "source_model": "/home/Ubuntu/workspace/models/Llama-3.1-8B-Instruct",
+  "tool": "erisforge",
+  "max_instructions": 100,
+  "batch_size": 5,
+  "architecture": "llama",
+  "total_time_seconds": 2776.2049379348755
+}

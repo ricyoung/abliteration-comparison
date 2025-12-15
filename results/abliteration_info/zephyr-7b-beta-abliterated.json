@@ -1,0 +1,24 @@
+{
+  "source_model": "/home/Ubuntu/workspace/models/zephyr-7b-beta",
+  "trials": 50,
+  "best_trial": 8,
+  "refusals": 2,
+  "kl_divergence": 0.07596040517091751,
+  "direction_scope": "per layer",
+  "direction_index": null,
+  "parameters": {
+    "attn.o_proj": {
+      "max_weight": 1.3371411398177933,
+      "max_weight_position": 23.833712780662758,
+      "min_weight": 0.20238740968995944,
+      "min_weight_distance": 4.7268324739045
+    },
+    "mlp.down_proj": {
+      "max_weight": 1.49807968644877,
+      "max_weight_position": 18.79122521231909,
+      "min_weight": 1.147283042554321,
+      "min_weight_distance": 9.092561403753763
+    }
+  },
+  "total_time_seconds": 2434.2581880579964
+}

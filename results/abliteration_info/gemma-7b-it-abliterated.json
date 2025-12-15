@@ -1,0 +1,25 @@
+{
+  "source_model": "/home/ric/workspace/models/gemma-7b-it",
+  "trials": 50,
+  "best_trial": 6,
+  "refusals": 2,
+  "kl_divergence": 0.22432848811149597,
+  "direction_scope": "per layer",
+  "direction_index": null,
+  "parameters": {
+    "attn.o_proj": {
+      "max_weight": 1.3553188166915902,
+      "max_weight_position": 16.82795549523918,
+      "min_weight": 1.1120182981620523,
+      "min_weight_distance": 13.87616607120409
+    },
+    "mlp.down_proj": {
+      "max_weight": 1.1672656738871572,
+      "max_weight_position": 23.877258846590113,
+      "min_weight": 0.16746745320879372,
+      "min_weight_distance": 12.891778137708691
+    }
+  },
+  "total_time_seconds": 23116.50072079082,
+  "tool": "heretic"
+}

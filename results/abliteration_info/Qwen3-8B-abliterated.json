@@ -1,0 +1,24 @@
+{
+  "source_model": "/home/Ubuntu/workspace/models/Qwen3-8B",
+  "trials": 50,
+  "best_trial": 17,
+  "refusals": 25,
+  "kl_divergence": 0.21022255718708038,
+  "direction_scope": "global",
+  "direction_index": 19.179611480938167,
+  "parameters": {
+    "attn.o_proj": {
+      "max_weight": 1.0139948551351996,
+      "max_weight_position": 33.88511678669222,
+      "min_weight": 0.43484739848710163,
+      "min_weight_distance": 20.14595428199479
+    },
+    "mlp.down_proj": {
+      "max_weight": 1.319328664985328,
+      "max_weight_position": 23.140363387889654,
+      "min_weight": 0.6825985339565394,
+      "min_weight_distance": 16.947763575821305
+    }
+  },
+  "total_time_seconds": 3409.6938328500037
+}

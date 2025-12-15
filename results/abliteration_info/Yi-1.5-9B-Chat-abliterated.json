@@ -1,0 +1,24 @@
+{
+  "source_model": "/home/Ubuntu/workspace/models/Yi-1.5-9B-Chat",
+  "trials": 50,
+  "best_trial": 48,
+  "refusals": 25,
+  "kl_divergence": 0.24801036715507507,
+  "direction_scope": "global",
+  "direction_index": 33.25417665715796,
+  "parameters": {
+    "attn.o_proj": {
+      "max_weight": 0.9875709073600611,
+      "max_weight_position": 45.930776575806334,
+      "min_weight": 0.08064508572701228,
+      "min_weight_distance": 19.836589390346784
+    },
+    "mlp.down_proj": {
+      "max_weight": 1.415737744184228,
+      "max_weight_position": 32.17036981943097,
+      "min_weight": 1.4075752514348354,
+      "min_weight_distance": 24.80351498178557
+    }
+  },
+  "total_time_seconds": 3445.321936884
+}

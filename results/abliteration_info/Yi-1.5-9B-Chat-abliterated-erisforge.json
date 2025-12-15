@@ -1,0 +1,8 @@
+{
+  "source_model": "/home/Ubuntu/workspace/models/Yi-1.5-9B-Chat",
+  "tool": "erisforge",
+  "max_instructions": 100,
+  "batch_size": 5,
+  "architecture": "llama",
+  "total_time_seconds": 6902.815137386322
+}

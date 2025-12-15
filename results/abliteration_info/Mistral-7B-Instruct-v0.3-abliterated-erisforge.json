@@ -1,0 +1,8 @@
+{
+  "source_model": "/home/Ubuntu/workspace/models/Mistral-7B-Instruct-v0.3",
+  "tool": "erisforge",
+  "max_instructions": 100,
+  "batch_size": 5,
+  "architecture": "mistral",
+  "total_time_seconds": 3982.78112077713
+}
