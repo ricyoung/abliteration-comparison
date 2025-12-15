@@ -89,7 +89,7 @@ The principal finding indicates that mathematical reasoning capabilities exhibit
 Large language models deployed for commercial and research applications undergo extensive safety alignment training to refuse potentially harmful requests \cite{arditi2024refusal}. This alignment serves critical protective functions, preventing misuse for activities including weapons synthesis, social engineering, and the generation of exploitative content. However, the same refusal mechanisms that protect against malicious use impede legitimate research applications. Cognitive science simulations requiring unfiltered behavioral modeling, cybersecurity red-teaming exercises, and studies of model bias and representation all require access to model capabilities that safety alignment deliberately restricts. This creates a fundamental tension between protective alignment and research utility that the field has yet to systematically address.
 
 % Paragraph 2: What is Known
-Prior research has established that refusal behavior in transformer-based language models is mediated by a specific direction in the residual stream activation space \cite{arditi2024refusal}. Arditi et al. demonstrated that this ``refusal direction'' can be identified by contrasting activations on harmful versus harmless prompts, and that orthogonalizing weight matrices with respect to this direction effectively disables refusal while preserving other capabilities. This technique, termed ``abliteration,'' has spawned multiple open-source implementations \cite{heretic,failspy,jimplus,erisforge}. Recent theoretical work has extended these findings: Pan et al. \cite{pan2025refusal} demonstrated universality of refusal directions across safety-aligned languages, Wollschl\"ager et al. \cite{wollschlaeger2025geometry} showed that multi-directional approaches can outperform single-direction ablation, and Chen et al. \cite{chen2025geometry} proposed that refusal may be encoded in concept cones spanning multiple dimensions rather than a single direction. Defensive countermeasures have also emerged, with extended-refusal training \cite{abushairah2025defense} and representation rerouting \cite{zou2024circuitbreaker} offering increased resistance to abliteration attacks.
+Prior research has established that refusal behavior in transformer-based language models is mediated by a specific direction in the residual stream activation space \cite{arditi2024refusal}. Arditi et al. demonstrated that this ``refusal direction'' can be identified by contrasting activations on harmful versus harmless prompts, and that orthogonalizing weight matrices with respect to this direction effectively disables refusal while preserving other capabilities. This technique, termed ``abliteration,'' has spawned multiple open-source implementations \cite{heretic,failspy,jimplus,erisforge}. Recent theoretical work has extended these findings: Wang et al. \cite{wang2025refusal} demonstrated universality of refusal directions across safety-aligned languages, Piras et al. \cite{piras2025som} showed that multi-directional approaches can outperform single-direction ablation, and Wollschl\"ager et al. \cite{wollschlaeger2025geometry} proposed that refusal may be encoded in concept cones spanning multiple dimensions rather than a single direction. Defensive countermeasures have also emerged, with extended-refusal training \cite{abushairah2025defense} and representation rerouting \cite{zou2024circuitbreaker} offering increased resistance to abliteration attacks.
 
 % Paragraph 3: What is Missing (The Hook)
 Despite the proliferation of abliteration tools and growing theoretical understanding, a critical gap remains: no systematic comparison has characterized the relative effectiveness of available implementations across standardized metrics. Researchers selecting abliteration tools must currently rely on anecdotal reports, tool documentation of varying quality, and trial-and-error experimentation. Critical questions remain unanswered. Which implementation produces the lowest distribution shift from the original model? How do architectural features affect abliteration effectiveness? Do different alignment methodologies yield models with fundamentally different refusal representations? The absence of empirical guidance forces inefficient tool selection and prevents principled understanding of capability-safety tradeoffs across the abliteration landscape.
@@ -110,9 +110,9 @@ This work contributes (1) a systematic comparative analysis of abliteration tool
 
 \subsection{Refusal Direction Theory}
 
-Arditi et al. \cite{arditi2024refusal} demonstrated that refusal behavior in language models is mediated by a single direction in the residual stream activation space. This direction can be identified by contrasting activations on harmful versus harmless prompts and computing the mean difference. By projecting weight matrices to be orthogonal to this direction, the model loses its ability to represent, and therefore execute, refusal responses. Recent work has extended this finding, demonstrating that the refusal direction is universal across safety-aligned languages \cite{pan2025refusal} and that multi-directional approaches can outperform single-direction ablation \cite{wollschlaeger2025geometry}.
+Arditi et al. \cite{arditi2024refusal} demonstrated that refusal behavior in language models is mediated by a single direction in the residual stream activation space. This direction can be identified by contrasting activations on harmful versus harmless prompts and computing the mean difference. By projecting weight matrices to be orthogonal to this direction, the model loses its ability to represent, and therefore execute, refusal responses. Recent work has extended this finding, demonstrating that the refusal direction is universal across safety-aligned languages \cite{wang2025refusal} and that multi-directional approaches can outperform single-direction ablation \cite{piras2025som}.
 
-The mathematical foundation rests on the observation that concepts are represented as linear directions in neural network activation spaces \cite{mikolov2013distributed,park2024linear,zou2023representation,turner2023activation,lin2024steering}. Recent theoretical work has challenged the strict single-direction hypothesis, finding that refusal may be encoded in concept cones spanning multiple dimensions \cite{chen2025geometry}. Additionally, Liu et al. \cite{liu2025harmfulness} showed that LLMs encode harmfulness and refusal as separate representations, with jailbreaks suppressing refusal without altering internal harmfulness beliefs.
+The mathematical foundation rests on the observation that concepts are represented as linear directions in neural network activation spaces \cite{mikolov2013distributed,park2024linear,zou2023representation,turner2023activation,cyberey2025steering}. Recent theoretical work has challenged the strict single-direction hypothesis, finding that refusal may be encoded in concept cones spanning multiple dimensions \cite{wollschlaeger2025geometry}. Additionally, Zhao et al. \cite{zhao2025harmfulness} showed that LLMs encode harmfulness and refusal as separate representations, with jailbreaks suppressing refusal without altering internal harmfulness beliefs.
 
 Defining the refusal direction as $\vec{r}$, the abliteration operation for a weight matrix $W$ becomes:
 
@@ -156,7 +156,7 @@ These alignment techniques embed refusal behavior through gradient updates that 
 
 Standardized benchmarks have emerged to enable systematic evaluation: \textbf{JailbreakBench} \cite{chao2024jailbreakbench} provides curated harmful prompts with automated success detection, while \textbf{HarmBench} \cite{mazeika2024harmbench} offers a comprehensive framework for evaluating both attack and defense methods across multiple harm categories. These benchmarks contextualize abliteration as one approach among many for bypassing safety measures, distinguished by its white-box requirement (model weight access) but high success rate once applied.
 
-Recent work has proposed defenses against abliteration specifically. Abu Shairah et al. \cite{abushairah2025defense} demonstrated that training models on extended-refusal responses distributes the refusal signal across multiple tokens, reducing abliteration effectiveness from 70--80\% success to under 10\%. Maini et al. \cite{maini2025safety} showed that refusal-only safety interventions are most fragile to abliteration, while representation rerouting approaches \cite{zou2024circuitbreaker} offer more robust protection.
+Recent work has proposed defenses against abliteration specifically. Abu Shairah et al. \cite{abushairah2025defense} demonstrated that training models on extended-refusal responses distributes the refusal signal across multiple tokens, reducing abliteration effectiveness from 70--80\% success to under 10\%. Agnihotri et al. \cite{agnihotri2025safety} showed that refusal-only safety interventions are most fragile to abliteration, while representation rerouting approaches \cite{zou2024circuitbreaker} offer more robust protection.
 
 The Zephyr model \cite{tunstall2023zephyr} provides a particularly relevant case study, as it was trained using DPO without explicit safety considerations. The authors note that ``removing the in-built alignment of the datasets boosted performance'' but ``the model is likely to generate problematic text when prompted.'' This design choice makes Zephyr-7B-beta an instructive baseline for evaluating abliteration on models with varying safety training approaches.
 
@@ -253,7 +253,7 @@ Specific dual-use concerns are addressed through several considerations:
 
 \textit{Prior art and accessibility}: All four abliteration tools evaluated in this study were publicly released prior to this research, with extensive documentation, tutorials, and pre-abliterated model weights already available on Hugging Face and GitHub. The techniques characterized in this study (directional orthogonalization, activation caching, layer-wise ablation) are well-documented in blog posts \cite{labonne2024abliteration}, academic preprints \cite{arditi2024refusal}, and open-source code. The contribution of this work is systematic evaluation and comparison, not capability advancement. A determined adversary already has unrestricted access to these tools; this research provides no additional capability to such actors.
 
-\textit{Defensive value}: Understanding abliteration vulnerabilities is essential for developing robust safety measures. Recent work has demonstrated that ``refusal-only'' safety training is particularly susceptible to abliteration \cite{maini2025safety}, while representation rerouting approaches \cite{zou2024circuitbreaker} and extended-refusal training \cite{abushairah2025defense} offer more robust protection. This research provides several concrete insights for defenders: (1) The finding that DPO-only models (Zephyr) show highest abliteration susceptibility (98\% ASR) while RLHF+DPO models (Llama, Yi) show more resistance suggests that multi-stage alignment creates more distributed safety representations; (2) The dramatic GSM8K sensitivity observed (Yi-1.5-9B: $-26.5\%$ with aggressive ablation) indicates that refusal circuits may overlap with mathematical reasoning, a finding relevant to designing alignment that minimizes ``alignment tax'' on capabilities; (3) The variance in KL divergence across models (0.043--1.646) reveals that some architectures maintain tighter coupling between safety and general capabilities, informing which models may require fundamentally different alignment approaches.
+\textit{Defensive value}: Understanding abliteration vulnerabilities is essential for developing robust safety measures. Recent work has demonstrated that ``refusal-only'' safety training is particularly susceptible to abliteration \cite{agnihotri2025safety}, while representation rerouting approaches \cite{zou2024circuitbreaker} and extended-refusal training \cite{abushairah2025defense} offer more robust protection. This research provides several concrete insights for defenders: (1) The finding that DPO-only models (Zephyr) show highest abliteration susceptibility (98\% ASR) while RLHF+DPO models (Llama, Yi) show more resistance suggests that multi-stage alignment creates more distributed safety representations; (2) The dramatic GSM8K sensitivity observed (Yi-1.5-9B: $-26.5\%$ with aggressive ablation) indicates that refusal circuits may overlap with mathematical reasoning, a finding relevant to designing alignment that minimizes ``alignment tax'' on capabilities; (3) The variance in KL divergence across models (0.043--1.646) reveals that some architectures maintain tighter coupling between safety and general capabilities, informing which models may require fundamentally different alignment approaches.
 
 \textit{Legitimate research applications}: Uncensored models serve critical research functions that motivated this evaluation: (1) \textit{Cognitive science}: Simulating unfiltered behavioral responses for psychological modeling without artificial refusal artifacts; (2) \textit{Red-teaming and security research}: Evaluating downstream system vulnerabilities requires adversarial inputs that safety-aligned models refuse to generate; (3) \textit{Bias and fairness auditing}: Understanding model representations of sensitive topics requires removing refusal confounds; (4) \textit{Creative and literary applications}: Fiction involving conflict, violence, or mature themes faces artificial generation barriers.
 
@@ -645,20 +645,20 @@ Rafailov, R., et al. ``Direct preference optimization: Your language model is se
 \bibitem{abushairah2025defense}
 Abu Shairah, M., et al. ``An Embarrassingly Simple Defense Against LLM Abliteration Attacks.'' arXiv:2505.19056 (2025).
 
-\bibitem{maini2025safety}
-Maini, P., et al. ``A Granular Study of Safety Pretraining under Model Abliteration.'' arXiv:2510.02768 (2025).
+\bibitem{agnihotri2025safety}
+Agnihotri, S., Jakubassa, J., Dey, P., Goyal, S., Schiele, B., Radhakrishnan, V. B., \& Keuper, M. ``A Granular Study of Safety Pretraining under Model Abliteration.'' arXiv:2510.02768 (2025).
+
+\bibitem{piras2025som}
+Piras, G., Mura, R., Brau, F., Oneto, L., Roli, F., \& Biggio, B. ``SOM Directions are Better than One: Multi-Directional Refusal Suppression in Language Models.'' arXiv:2511.08379 (2025).
+
+\bibitem{wang2025refusal}
+Wang, X., Wang, M., Liu, Y., Sch\"utze, H., \& Plank, B. ``Refusal Direction is Universal Across Safety-Aligned Languages.'' arXiv:2505.17306 (2025).
 
 \bibitem{wollschlaeger2025geometry}
-Wollschl\"ager, N., et al. ``SOM Directions are Better than One: Multi-Directional Refusal Suppression in Language Models.'' arXiv:2511.08379 (2025).
+Wollschl\"ager, T., Elstner, J., Geisler, S., Cohen-Addad, V., G\"unnemann, S., \& Gasteiger, J. ``The Geometry of Refusal in Large Language Models: Concept Cones and Representational Independence.'' arXiv:2502.17420 (2025).
 
-\bibitem{pan2025refusal}
-Pan, Y., et al. ``Refusal Direction is Universal Across Safety-Aligned Languages.'' arXiv:2505.17306 (2025).
-
-\bibitem{chen2025geometry}
-Chen, Z., et al. ``The Geometry of Refusal in Large Language Models: Concept Cones and Representational Independence.'' arXiv:2502.17420 (2025).
-
-\bibitem{liu2025harmfulness}
-Liu, Y., et al. ``LLMs Encode Harmfulness and Refusal Separately.'' arXiv:2507.11878 (2025).
+\bibitem{zhao2025harmfulness}
+Zhao, J., Huang, J., Wu, Z., Bau, D., \& Shi, W. ``LLMs Encode Harmfulness and Refusal Separately.'' arXiv:2507.11878 (2025).
 
 % === JAILBREAKING & ADVERSARIAL ATTACKS ===
 
@@ -696,8 +696,8 @@ Inan, H., et al. ``Llama Guard: LLM-based Input-Output Safeguard for Human-AI Co
 \bibitem{tunstall2023zephyr}
 Tunstall, L., et al. ``Zephyr: Direct Distillation of LM Alignment.'' arXiv:2310.16944 (2023).
 
-\bibitem{lin2024steering}
-Lin, L., et al. ``Steering the CensorShip: Uncovering Representation Vectors for LLM Thought Control.'' arXiv:2504.17130 (2025).
+\bibitem{cyberey2025steering}
+Cyberey, H. \& Evans, D. ``Steering the CensorShip: Uncovering Representation Vectors for LLM Thought Control.'' arXiv:2504.17130 (2025).
 
 \bibitem{jain2024mechanics}
 Jain, S., et al. ``What makes and breaks safety fine-tuning? A mechanistic study.'' NeurIPS (2024).
