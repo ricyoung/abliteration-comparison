@@ -7,6 +7,8 @@ This repository contains reproducibility materials for the paper:
 Richard J. Young
 University of Nevada Las Vegas, Department of Neuroscience
 
+> **Responsible-use note:** This comparison measures what refusal-direction removal does to model behavior and capability, as a baseline for evaluating how durable safety training is. Models derived from this work are released on Hugging Face under gated access, for research use only.
+
 ## Abstract
 
 Safety alignment mechanisms in large language models prevent responses to harmful queries through learned refusal behavior, yet these same mechanisms impede legitimate research applications including cognitive modeling, adversarial testing, and security analysis. This study evaluates four abliteration tools (Heretic, DECCP, ErisForge, FailSpy) across sixteen instruction-tuned models (7B–14B parameters), reporting tool compatibility and quantitative metrics on capability preservation and refusal suppression.
